@@ -1,14 +1,15 @@
 #include <iostream>
 #include "InputData/Input.h"
+#include "InputData/InputGeometry.h"
 
 using namespace std;
 
 int main()
 {
     //Test Data
-    double maxDia {5.0}; //m
-    double minDia {2.0}; //m
-    double towerLength{80}; //m
+    double maxDia {6.0}; //m
+    double minDia {3.0}; //m
+    double towerLength{180.0}; //m
     double maxSectionLength{40.0}; //m
     double maxSheetLength{2.95}; //m
     bool hasDoor{false};
@@ -17,9 +18,9 @@ int main()
     double topMass{500}; //ton
 
     //Test Program
-    InputData ipData(maxWeight);
-
+    InputGeometry ipGeomData(towerLength, maxSectionLength, maxSheetLength, minDia, maxDia, minDia, maxDia, false);
+    InputData ipData(&ipGeomData, maxWeight);
+    //Function from base class InputData
     ipData.ToString();
-
     cout << "Hello World\n";
 }

@@ -2,13 +2,11 @@
 #include <iostream>
 #include "Input.h"
 
-
-InputData::InputData(double MaxWeight) : maxWeight{MaxWeight}
+InputData::InputData(const double MaxWeight) : maxWeight{MaxWeight}
 {
-
 }
 
-InputData::InputData(const InputGeometry& InputGeom, const double& MaxWeight) : inputGeometry{InputGeom}, maxWeight{MaxWeight}
+InputData::InputData(InputGeometry* InputGeom, const double& MaxWeight) : inputGeometry{InputGeom}, maxWeight{MaxWeight}
 {
 
 }

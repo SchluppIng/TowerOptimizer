@@ -8,8 +8,8 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}", 
-                "${fileDirname}/InputData/Input.cpp",
                 "${fileDirname}/InputData/InputGeometry.cpp",
+                "${fileDirname}/InputData/Input.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

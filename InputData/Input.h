@@ -3,18 +3,21 @@
 
 #include "InputGeometry.h"
 
+//Forward declaration
+class InputGeometry;
+
 class InputData
 {
 public:
     InputData();
-    InputData(double MaxWeight);
-    InputData(const InputGeometry& InputGeom, const double& MaxWeight);//, const Loads& InputLoads, const CalcFactors& CalculationFactors);
+    InputData(const double MaxWeight);
+    InputData(InputGeometry* InputGeom, const double& MaxWeight);//, const Loads& InputLoads, const CalcFactors& CalculationFactors);
 
     void setMaxWeight(const double& MaxWeight ) { maxWeight = MaxWeight; }
     void ToString();
 
 private:
-    InputGeometry inputGeometry;
+    InputGeometry* inputGeometry;
     double maxWeight;
     //Loads inputLoads;
     //CalcFactors calculationFactors;

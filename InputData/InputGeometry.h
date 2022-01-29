@@ -1,6 +1,8 @@
 #ifndef INPUTGEOMETRY_H
 #define INPUTGEOMETRY_H
 
+#include "Input.h"
+
 class InputGeometry
 {
 public:
