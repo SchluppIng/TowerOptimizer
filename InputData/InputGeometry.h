@@ -4,11 +4,12 @@
 class InputGeometry
 {
 public:
+    InputGeometry(){}
     InputGeometry(const double& TowerLength, const double& SectionLength, const double& SheetLength, const double& minODiameter, 
                 const double& maxODiameter, const double& minIDiameter, const double& maxIDiameter, const bool& Door);
-    InputGeometry(const InputGeometry&);
+    //InputGeometry(const InputGeometry&);
 
-    ~InputGeometry();
+    ~InputGeometry(){}
 
     double getTowerLength(){ return towerLength;}
     double getSectionLength() { return sectionLength; }
