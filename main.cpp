@@ -22,5 +22,4 @@ int main()
     ipData.ToString();
 
     cout << "Hello World\n";
-    return 0;
 }
