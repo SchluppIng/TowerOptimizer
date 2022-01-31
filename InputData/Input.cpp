@@ -6,12 +6,16 @@ InputData::InputData()
 {
 }
 
-InputData::InputData(InputGeometry* InputGeom, InputLoads* InputLoads) : inputGeometry{InputGeom}, inputLoads{InputLoads}
+InputData::InputData(InputGeometry* InputGeom, InputLoads* InputLoads, InputCalcFactors* CalculationFactors) : 
+    inputGeometry{InputGeom}, 
+    inputLoads{InputLoads},
+    calcFactors{CalculationFactors}
 {
 }
 
 void InputData::ToString()
 {
-    std::cout << "ToString Func von InputData" << std::endl;
+    //Just for stupid testing
+    std::cout << "Tower has door? " << std::boolalpha << this->inputGeometry->getDoor() << std::endl;
 }
 

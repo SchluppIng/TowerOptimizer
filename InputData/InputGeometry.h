@@ -21,7 +21,7 @@ public:
     double getMaxOuterDiameter() const { return maxOuterDiameter; }
     double getMinInnerDiameter() const { return minInnerDiameter; }
     double getMaxInnerDiameter() const { return maxInnerDiameter; }
-    bool getDoot() const {return door; } 
+    bool getDoor() const {return door; } 
     
 private:
     double towerLength;
