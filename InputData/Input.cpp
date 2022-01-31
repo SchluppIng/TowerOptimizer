@@ -2,17 +2,16 @@
 #include <iostream>
 #include "Input.h"
 
-InputData::InputData(const double MaxWeight) : maxWeight{MaxWeight}
+InputData::InputData()
 {
 }
 
-InputData::InputData(InputGeometry* InputGeom, const double& MaxWeight) : inputGeometry{InputGeom}, maxWeight{MaxWeight}
+InputData::InputData(InputGeometry* InputGeom, InputLoads* InputLoads) : inputGeometry{InputGeom}, inputLoads{InputLoads}
 {
-
 }
 
 void InputData::ToString()
 {
-    std::cout << std::to_string(maxWeight) << std::endl;
+    std::cout << "ToString Func von InputData" << std::endl;
 }
 

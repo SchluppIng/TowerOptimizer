@@ -9,6 +9,7 @@
                 "-g",
                 "${file}", 
                 "${fileDirname}/InputData/InputGeometry.cpp",
+                "${fileDirname}/InputData/InputLoads.cpp",
                 "${fileDirname}/InputData/Input.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"

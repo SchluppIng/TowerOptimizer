@@ -13,14 +13,15 @@ public:
 
     ~InputGeometry(){}
 
-    double getTowerLength(){ return towerLength;}
-    double getSectionLength() { return sectionLength; }
-    double getSheetLength() { return sheetLength; }
-    double getMinOuterDiameter() { return minOuterDiameter; }
-    double getMaxOuterDiameter() { return maxOuterDiameter; }
-    double getMinInnerDiameter() { return minInnerDiameter; }
-    double getMaxInnerDiameter() { return maxInnerDiameter; }
-    bool getDoot() {return door; } 
+    //Getter
+    double getTowerLength() const { return towerLength;}
+    double getSectionLength() const { return sectionLength; }
+    double getSheetLength() const { return sheetLength; }
+    double getMinOuterDiameter() const { return minOuterDiameter; }
+    double getMaxOuterDiameter() const { return maxOuterDiameter; }
+    double getMinInnerDiameter() const { return minInnerDiameter; }
+    double getMaxInnerDiameter() const { return maxInnerDiameter; }
+    bool getDoot() const {return door; } 
     
 private:
     double towerLength;
