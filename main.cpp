@@ -9,7 +9,7 @@ int main()
     //Test Data
     double maxDia {6.0}; //m
     double minDia {3.0}; //m
-    double towerLength{180.0}; //m
+    double towerLength{80}; //m
     double maxSectionLength{40.0}; //m
     double maxSheetLength{2.95}; //m
     bool hasDoor{false};
