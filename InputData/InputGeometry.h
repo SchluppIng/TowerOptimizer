@@ -1,15 +1,12 @@
 #ifndef INPUTGEOMETRY_H
 #define INPUTGEOMETRY_H
 
-#include "Input.h"
-
 class InputGeometry
 {
 public:
-    InputGeometry(){}
     InputGeometry(const double& TowerLength, const double& SectionLength, const double& SheetLength, const double& minODiameter, 
                 const double& maxODiameter, const double& minIDiameter, const double& maxIDiameter, const bool& Door);
-    //InputGeometry(const InputGeometry&);
+    InputGeometry(const InputGeometry& ipG);
 
     ~InputGeometry(){}
 

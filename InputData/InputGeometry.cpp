@@ -13,3 +13,13 @@ const double& maxODiameter, const double& minIDiameter, const double& maxIDiamet
     {
     }
 
+InputGeometry::InputGeometry(const InputGeometry& ipG) :
+    InputGeometry(ipG.towerLength,
+    ipG.sectionLength,
+    ipG.sheetLength,
+    ipG.minOuterDiameter,
+    ipG.maxOuterDiameter,
+    ipG.minInnerDiameter,
+    ipG.maxInnerDiameter,
+    ipG.door)
+{}

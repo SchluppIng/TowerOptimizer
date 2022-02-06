@@ -17,3 +17,19 @@ InputCalcFactors::InputCalcFactors(const double& TowerTilt, const double& RotSti
     {
 
     }
+
+InputCalcFactors::InputCalcFactors(const InputCalcFactors& ipC) :
+    InputCalcFactors( ipC.towerTilt,
+    ipC.rotationalStiffness,
+    ipC.translationalStiffness,
+    ipC.safteyTowerWallULS,
+    ipC.safteyBuckling,
+    ipC.safteyFlangeULS,
+    ipC.safteyTowerWallFLS,
+    ipC.safteyBoltFLS,
+    ipC.safteyBoltPretension,
+    ipC.qualityClass,
+    ipC.ductilityCheck)
+{
+    
+}

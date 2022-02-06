@@ -17,3 +17,17 @@ InputLoads::InputLoads(const double& maxWeight, const double& maxSectionWeight, 
     {
 
     }
+
+InputLoads::InputLoads(const InputLoads& ipL) :
+    InputLoads(ipL.MaxWeight,
+    ipL.MaxSectionWeight,
+    ipL.TopMass,
+    ipL.BottomFz,
+    ipL.BottomFres,
+    ipL.BottomMz,
+    ipL.BottomMxy,
+    ipL.TopFz,
+    ipL.TopFres,
+    ipL.TopMz,
+    ipL.TopMxy)
+{}

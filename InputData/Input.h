@@ -5,24 +5,19 @@
 #include "InputLoads.h"
 #include "InputCalcFactors.h"
 
-//Forward declaration
-class InputGeometry;
-class InputLoads;
-
 class InputData
 {
 public:
     InputData();
-    InputData(const double MaxWeight);
-    InputData(InputGeometry* InputGeom, InputLoads* InputLoads, InputCalcFactors* CalculationFactors);
+    InputData(const InputGeometry& InputGeom, const InputLoads& InputLoads, const InputCalcFactors& CalculationFactors);
+    InputData(const InputData& ipD);
+    ~InputData(){}
 
     void ToString();
 
 private:
-    InputGeometry* inputGeometry;
-    InputLoads* inputLoads;
-    InputCalcFactors* calcFactors;
-    //Loads inputLoads;
-    //CalcFactors calculationFactors;
+    InputGeometry inputGeometry;
+    InputLoads inputLoads;
+    InputCalcFactors calcFactors;
 };
 #endif

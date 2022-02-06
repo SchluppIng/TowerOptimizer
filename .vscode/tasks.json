@@ -12,6 +12,7 @@
                 "${fileDirname}/InputData/InputLoads.cpp",
                 "${fileDirname}/InputData/InputCalcFactors.cpp",
                 "${fileDirname}/InputData/Input.cpp",
+                "${fileDirname}/Tower/TowerSheet.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
