@@ -13,8 +13,6 @@ public:
     InputData(const InputData& ipD);
     ~InputData(){}
 
-    void ToString();
-
 private:
     InputGeometry inputGeometry;
     InputLoads inputLoads;

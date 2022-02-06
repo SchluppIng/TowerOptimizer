@@ -47,8 +47,6 @@ int main()
     InputLoads ipLoads(maxWeight, maxSectionWeight, topMass, bottomMxy, bottomMz, bottomFz, bottomFres, topMxy, topMz, topFz, topFres);
     InputCalcFactors ipCalcFacotrs(towerTilt, rotStiff, transStiff);
     InputData ipData(ipGeomData, ipLoads, ipCalcFacotrs);
-    ipData.ToString();
-
 
     //Test TowerSheet
     TowerSheet ts(bottomDia, topDia, sheetLen, thickness);
