@@ -1,6 +1,8 @@
 #ifndef TOWERSHEET_H
 #define TOWERSHEET_H
 
+//#include "PhysicalValues/PhysicalValues.h"
+
 class TowerSheet
 {
 public:
@@ -24,6 +26,7 @@ public:
     double getIyTop()const {return iyTop;}
     double getWyBottom()const {return wyBottom;}
     double getWyTop()const {return wyTop;}
+    double getSheetWeight() const{return sheetWeight;}
 #pragma endregion
 
 #pragma region Setter and recalculations of values
@@ -35,6 +38,7 @@ public:
         bottomArea = calcTowerSheetArea(diameterBottomOut, diameterBottomIn);
         iyBottom = calcIy(diameterBottomOut, diameterBottomIn);
         wyBottom = calcWy(diameterBottomOut, iyBottom);
+        calcSheetWeight();
     }
     void setDiameterTopOut(const double& diaTopOut) 
     { 
@@ -43,6 +47,7 @@ public:
         topArea = calcTowerSheetArea(diameterTopOut, diameterTopIn);
         iyTop = calcIy(diameterTopOut, diameterTopIn);
         wyTop = calcWy(diameterTopOut, iyTop);
+        calcSheetWeight();
     }
 
     void setSheetThickness(const double& thickness)
@@ -56,12 +61,14 @@ public:
         wyBottom = calcWy(diameterBottomOut, iyBottom);
         iyTop = calcIy(diameterTopOut, diameterTopIn);
         wyTop = calcWy(diameterTopOut, iyTop);
+        calcSheetWeight();
     }
 
     void setSheetLength(const double& sheetLen)
     {
         sheetLength = sheetLen;
         sheetHeight = calcTowerSheetHeight(diameterBottomOut, diameterTopOut, sheetLength);
+        calcSheetWeight();
     }
 
 #pragma endregion
@@ -72,6 +79,7 @@ private:
     double calcTowerSheetArea(const double& diaOut, const double& diaIn);
     double calcIy(const double& diaOut, const double& diaIn);
     double calcWy(const double& diaOut, const double& iy);
+    void calcSheetWeight();
 
     //Attributes from handover
     double diameterBottomOut;
@@ -89,5 +97,6 @@ private:
     double iyTop;
     double wyBottom;
     double wyTop;
+    double sheetWeight;
 };
 #endif

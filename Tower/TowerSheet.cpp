@@ -1,5 +1,6 @@
 #include <cmath>
 #include "TowerSheet.h"
+#include "../PhysicalValues/PhysicalValues.h"
 
 
 TowerSheet::TowerSheet(const double& diaBottomOut, const double& diaTopOut, const double& sheetLen, const double& thickness) :
@@ -17,6 +18,7 @@ TowerSheet::TowerSheet(const double& diaBottomOut, const double& diaTopOut, cons
     iyTop = calcIy(diameterTopOut, diameterTopIn);
     wyBottom = calcWy(diameterBottomOut, iyBottom);
     wyTop = calcWy(diameterTopOut, iyTop);
+    calcSheetWeight();
 }
 
 TowerSheet::TowerSheet(const TowerSheet& ts) :
@@ -55,4 +57,16 @@ double TowerSheet::calcWy(const double& diaOut, const double& iy)
 {
     double radiusOut = diaOut / 2.0;
     return iy / radiusOut;
+}
+
+void TowerSheet::calcSheetWeight()
+{
+    double radiusTopOut = diameterTopOut / 2.0;
+    double radiusBttomOut = diameterBottomOut / 2.0;
+    double radiusTopIn = diameterTopIn / 2.0;
+    double radiusBottomIn = diameterBottomIn / 2.0;
+
+    double outerVolume = (sheetHeight * M_PI) / 3 * ( pow(radiusBttomOut, 2) + radiusBttomOut * radiusTopOut + pow(radiusTopOut, 2));
+    double innerVolume = (sheetHeight * M_PI) / 3 * ( pow(radiusBottomIn, 2)+ radiusBottomIn * radiusTopIn + pow(radiusTopIn, 2));
+    sheetWeight = (outerVolume - innerVolume) * steelWeigth;
 }

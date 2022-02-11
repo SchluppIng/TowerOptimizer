@@ -1,9 +1,11 @@
 #include <iostream>
+#include <vector>
 #include "InputData/Input.h"
 #include "InputData/InputGeometry.h"
 #include "InputData/InputLoads.h"
 #include "InputData/InputCalcFactors.h"
 #include "Tower/TowerSheet.h"
+#include "Tower/TowerSection.h"
 
 using namespace std;
 
@@ -22,6 +24,7 @@ int main()
     double maxSectionWeight{80}; //ton
     double topMass{235.0}; //ton
     
+    //ULS Loads
     double bottomFz{-6957}; //kN    
     double bottomFres{1255}; //kN
     double bottomMz{15};  //kNm  
@@ -37,9 +40,9 @@ int main()
     double transStiff = 240000; // kN/m
     //__________________________________________________________
     //TestData for tower sheet
-    double bottomDia {4.0}; //m
-    double topDia{3.9}; //m
-    double thickness{0.1}; //m
+    double bottomDia {4.4}; //m
+    double topDia{4.4}; //m
+    double thickness{0.034}; //m
     double sheetLen{maxSheetLength};
     //__________________________________________________________
     //Test Program
@@ -49,11 +52,18 @@ int main()
     InputData ipData(ipGeomData, ipLoads, ipCalcFacotrs);
 
     //Test TowerSheet
-    TowerSheet ts(bottomDia, topDia, sheetLen, thickness);
-    //Test to change Values
-    ts.setDiameterBottomOut(4.4);
-    ts.setDiameterTopOut(4.4);
-    ts.setSheetThickness(0.043);
+    TowerSheet ts0(4.4, 4.4, 0.195, 0.036);
+    TowerSheet ts1(4.4, 4.4, 2.785, 0.034);
+    TowerSheet ts2(4.4, 4.4, 2.950, 0.033);
+    TowerSheet ts3(4.4, 4.4, 2.950, 0.031);
+    TowerSheet ts4(4.4, 4.4, 2.950, 0.031);
+    TowerSheet ts5(4.4, 4.4, 2.950, 0.029);
+    TowerSheet ts6(4.4, 4.4, 2.950, 0.029);
+    TowerSheet ts7(4.4, 4.3, 0.170, 0.029);
+    vector<TowerSheet> vecTs = {ts0, ts1, ts2, ts3, ts4, ts5, ts6, ts7};
+
+    //Test TowerSection
+    TowerSection towerSec(vecTs, false);
     
     cout << "End of this f*cking Program\n";
 }

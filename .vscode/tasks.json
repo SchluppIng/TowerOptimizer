@@ -8,11 +8,13 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}", 
+                "${fileDirname}/PhysicalValues/PhysicalValues.h",
                 "${fileDirname}/InputData/InputGeometry.cpp",
                 "${fileDirname}/InputData/InputLoads.cpp",
                 "${fileDirname}/InputData/InputCalcFactors.cpp",
                 "${fileDirname}/InputData/Input.cpp",
                 "${fileDirname}/Tower/TowerSheet.cpp",
+                "${fileDirname}/Tower/TowerSection.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
