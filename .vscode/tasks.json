@@ -15,6 +15,7 @@
                 "${fileDirname}/InputData/Input.cpp",
                 "${fileDirname}/Tower/TowerSheet.cpp",
                 "${fileDirname}/Tower/TowerSection.cpp",
+                "${fileDirname}/Tower/Tower.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

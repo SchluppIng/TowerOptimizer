@@ -6,6 +6,7 @@
 #include "InputData/InputCalcFactors.h"
 #include "Tower/TowerSheet.h"
 #include "Tower/TowerSection.h"
+#include "Tower/Tower.h"
 
 using namespace std;
 
@@ -63,7 +64,13 @@ int main()
     vector<TowerSheet> vecTs = {ts0, ts1, ts2, ts3, ts4, ts5, ts6, ts7};
 
     //Test TowerSection
-    TowerSection towerSec(vecTs, false);
+    TowerSection towerSec(vecTs, false, 1);
+    TowerSection copyTowerSec{towerSec};
+    TowerSection copyTowerSec2{towerSec};
+
+    vector<TowerSection> vecTowerSections = { towerSec, copyTowerSec, copyTowerSec2};
     
+    //Test Tower
+    Tower tower{vecTowerSections, topMass};
     cout << "End of this f*cking Program\n";
 }
