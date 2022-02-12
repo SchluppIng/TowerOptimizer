@@ -1,10 +1,10 @@
 #include "TowerSection.h"
 
-
-TowerSection::TowerSection(const std::vector<TowerSheet>& towerSheet, const bool& hasDoor) :
-sectionSheets{towerSheet},
+TowerSection::TowerSection(const std::vector<TowerSheet>& vecTowerSheets, const bool& hasDoor, const int& sectionNum) :
+sectionSheets{vecTowerSheets},
 sectionHasDoor{hasDoor},
-numberOfSheets{ static_cast<int>(towerSheet.size()) }
+numberOfSheets{ static_cast<int>(vecTowerSheets.size()) },
+sectionNumber{sectionNum}
 {
     calcSectionLength();
     calcSectionWeight();
@@ -12,7 +12,7 @@ numberOfSheets{ static_cast<int>(towerSheet.size()) }
 }
 
 TowerSection::TowerSection(const TowerSection& ts) :
-TowerSection(ts.sectionSheets, ts.sectionHasDoor)
+TowerSection(ts.sectionSheets, ts.sectionHasDoor, ts.sectionNumber)
 {
 }
 
