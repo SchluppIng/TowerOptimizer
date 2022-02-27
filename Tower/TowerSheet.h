@@ -75,6 +75,12 @@ public:
         calcSheetWeight();
     }
 
+    void setSteelGrade(const std::string& SteelGrade)
+    {
+        steelGrade = SteelGrade;
+        yieldStrength = CalcYieldStrength().getYieldStrengthForPlateThickness(steelGrade, sheetThickness);
+    }
+
 #pragma endregion
 
 private:
@@ -90,6 +96,7 @@ private:
     double diameterTopOut;
     double sheetLength;
     double sheetThickness;
+    std::string steelGrade;
 
     //Calculated attributes
     double diameterBottomIn;
@@ -102,7 +109,6 @@ private:
     double wyBottom;
     double wyTop;
     double sheetWeight;
-    double yieldStrength;
-    std::string steelGrade;
+    double yieldStrength;    
 };
 #endif
