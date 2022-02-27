@@ -33,7 +33,7 @@ class CalcYieldStrength
             
         for( int i = 0; i < vecYieldStrength.size(); i++)
         {
-            
+            //Return yield strength for plate thickness in N/mm²
             if( PlateThickness <= (vecYieldStrength.at(i).first / 1000.0))
                 return vecYieldStrength.at(i).second.at(columnNum);
         }
