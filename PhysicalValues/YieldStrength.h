@@ -5,6 +5,19 @@
 #include <utility>
 #include <string>
 
+static const std::vector<std::pair<int, std::vector<double>>> vecYieldStrength
+ {
+     //Plate thickness is in mm and Yied Strength is in N/mm²
+     std::make_pair(16, std::vector<double>{235.0, 275.0, 355.0}),
+     std::make_pair(40, std::vector<double>{225.0, 265.0, 345.0}),
+     std::make_pair(63, std::vector<double>{215.0, 255.0, 335.0}),
+     std::make_pair(80, std::vector<double>{215.0, 245.0, 325.0}),
+     std::make_pair(100, std::vector<double>{215.0, 235.0, 315.0}),
+     std::make_pair(150, std::vector<double>{195.0, 225.0, 295.0}),
+     std::make_pair(200, std::vector<double>{185.0, 215.0, 285.0}),
+     std::make_pair(250, std::vector<double>{175.0, 205.0, 275.0})
+ };
+
 class CalcYieldStrength
 {
     public:
@@ -28,18 +41,5 @@ class CalcYieldStrength
     }
 
     private:
-   std::vector<std::pair<int, std::vector<double>>> vecYieldStrength
-    {
-        //Plate thickness is in mm and Yied Strength is in N/mm²
-        std::make_pair(16, std::vector<double>{235.0, 275.0, 355.0}),
-        std::make_pair(40, std::vector<double>{225.0, 265.0, 345.0}),
-        std::make_pair(63, std::vector<double>{215.0, 255.0, 335.0}),
-        std::make_pair(80, std::vector<double>{215.0, 245.0, 325.0}),
-        std::make_pair(100, std::vector<double>{215.0, 235.0, 315.0}),
-        std::make_pair(150, std::vector<double>{195.0, 225.0, 295.0}),
-        std::make_pair(200, std::vector<double>{185.0, 215.0, 285.0}),
-        std::make_pair(250, std::vector<double>{175.0, 205.0, 275.0})
-    };
-   
 };
 #endif
