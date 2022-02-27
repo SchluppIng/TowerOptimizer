@@ -3,11 +3,12 @@
 #include "../PhysicalValues/PhysicalValues.h"
 
 
-TowerSheet::TowerSheet(const double& diaBottomOut, const double& diaTopOut, const double& sheetLen, const double& thickness) :
+TowerSheet::TowerSheet(const double& diaBottomOut, const double& diaTopOut, const double& sheetLen, const double& thickness, const std::string& SteelGrade) :
     diameterBottomOut{diaBottomOut},
     diameterTopOut{diaTopOut},
     sheetLength{sheetLen},
-    sheetThickness{thickness}
+    sheetThickness{thickness},
+    steelGrade{SteelGrade}
 {
     sheetHeight = calcTowerSheetHeight(diaBottomOut, diameterTopOut, sheetLength);
     diameterBottomIn = calcTowerSheetInnerDiameter(diameterBottomOut, thickness);
@@ -18,11 +19,12 @@ TowerSheet::TowerSheet(const double& diaBottomOut, const double& diaTopOut, cons
     iyTop = calcIy(diameterTopOut, diameterTopIn);
     wyBottom = calcWy(diameterBottomOut, iyBottom);
     wyTop = calcWy(diameterTopOut, iyTop);
+    yieldStrength = CalcYieldStrength().getYieldStrengthForPlateThickness(steelGrade, sheetThickness);
     calcSheetWeight();
 }
 
 TowerSheet::TowerSheet(const TowerSheet& ts) :
-    TowerSheet(ts.diameterBottomOut, ts.diameterTopOut, ts.sheetLength, ts.sheetThickness)
+    TowerSheet(ts.diameterBottomOut, ts.diameterTopOut, ts.sheetLength, ts.sheetThickness, ts.steelGrade)
 {
 }
 

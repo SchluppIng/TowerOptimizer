@@ -53,14 +53,14 @@ int main()
     InputData ipData(ipGeomData, ipLoads, ipCalcFacotrs);
 
     //Test TowerSheet
-    TowerSheet ts0(4.4, 4.4, 0.195, 0.036);
-    TowerSheet ts1(4.4, 4.4, 2.785, 0.034);
-    TowerSheet ts2(4.4, 4.4, 2.950, 0.033);
-    TowerSheet ts3(4.4, 4.4, 2.950, 0.031);
-    TowerSheet ts4(4.4, 4.4, 2.950, 0.031);
-    TowerSheet ts5(4.4, 4.4, 2.950, 0.029);
-    TowerSheet ts6(4.4, 4.4, 2.950, 0.029);
-    TowerSheet ts7(4.4, 4.3, 0.170, 0.029);
+    TowerSheet ts0(4.4, 4.4, 0.195, 0.036, "S355");
+    TowerSheet ts1(4.4, 4.4, 2.785, 0.034, "S355");
+    TowerSheet ts2(4.4, 4.4, 2.950, 0.033, "S355");
+    TowerSheet ts3(4.4, 4.4, 2.950, 0.031, "S355");
+    TowerSheet ts4(4.4, 4.4, 2.950, 0.031, "S355");
+    TowerSheet ts5(4.4, 4.4, 2.950, 0.029, "S355");
+    TowerSheet ts6(4.4, 4.4, 2.950, 0.029, "S355");
+    TowerSheet ts7(4.4, 4.3, 0.170, 0.029, "S355");
     vector<TowerSheet> vecTs = {ts0, ts1, ts2, ts3, ts4, ts5, ts6, ts7};
 
     //Test TowerSection

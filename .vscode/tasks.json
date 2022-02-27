@@ -9,6 +9,7 @@
                 "-g",
                 "${file}", 
                 "${fileDirname}/PhysicalValues/PhysicalValues.h",
+                "${fileDirname}/PhysicalValues/YieldStrength.h",
                 "${fileDirname}/InputData/InputGeometry.cpp",
                 "${fileDirname}/InputData/InputLoads.cpp",
                 "${fileDirname}/InputData/InputCalcFactors.cpp",

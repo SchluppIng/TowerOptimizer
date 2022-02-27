@@ -1,13 +1,14 @@
 #ifndef TOWERSHEET_H
 #define TOWERSHEET_H
 
-//#include "PhysicalValues/PhysicalValues.h"
+#include <string>
+#include "../PhysicalValues/YieldStrength.h"
 
 class TowerSheet
 {
 public:
     TowerSheet(){}
-    TowerSheet(const double& diaBottomOut, const double& diaTopOut, const double& sheetLen, const double& thickness);
+    TowerSheet(const double& diaBottomOut, const double& diaTopOut, const double& sheetLen, const double& thickness, const std::string& SteelGrade);
     TowerSheet(const TowerSheet& ts);
     ~TowerSheet(){}
 
@@ -27,6 +28,8 @@ public:
     double getWyBottom()const {return wyBottom;}
     double getWyTop()const {return wyTop;}
     double getSheetWeight() const{return sheetWeight;}
+    std::string getSteelGrade() const {return steelGrade;}
+    double getYieldStrength() const{ return yieldStrength; }
 #pragma endregion
 
 #pragma region Setter and recalculations of values
@@ -62,6 +65,7 @@ public:
         iyTop = calcIy(diameterTopOut, diameterTopIn);
         wyTop = calcWy(diameterTopOut, iyTop);
         calcSheetWeight();
+        yieldStrength = CalcYieldStrength().getYieldStrengthForPlateThickness(steelGrade, sheetThickness);
     }
 
     void setSheetLength(const double& sheetLen)
@@ -98,5 +102,7 @@ private:
     double wyBottom;
     double wyTop;
     double sheetWeight;
+    double yieldStrength;
+    std::string steelGrade;
 };
 #endif
