@@ -77,5 +77,8 @@ int main()
     //Test Stess Analysis
     StressAnalysis stress("LoadCase", ts1.getDiameterBottomOut(), ts1.getBottomArea(), ts1.getSheetThickness(), ts1.getWyBottom(), 
     -5.3280, 1.2330, -2.0660, 127.2680, ts1.getYieldStrength(), ipCalcFacotrs.getSafeTyTowerWallULS() );
+    
+    //Test Results
+    
     cout << "End of this f*cking Program\n";
 }
