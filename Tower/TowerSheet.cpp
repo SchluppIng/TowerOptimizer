@@ -36,6 +36,7 @@ double TowerSheet::calcTowerSheetInnerDiameter(const double& diaOut, const doubl
 
 double TowerSheet::calcTowerSheetHeight(const double& diaBottom, const double& diaTop, const double& sheetLength)
 {
+    //Hight of the sheet including inclination
     double radiusBottom = diaBottom / 2.0;
     double radiusTop = diaTop / 2.0;
     return sqrt(pow(sheetLength, 2) - pow((radiusBottom - radiusTop), 2));
