@@ -68,7 +68,7 @@ void TowerSheet::calcSheetWeight()
     double radiusTopIn = diameterTopIn / 2.0;
     double radiusBottomIn = diameterBottomIn / 2.0;
 
-    double outerVolume = (sheetHeight * M_PI) / 3 * ( pow(radiusBttomOut, 2) + radiusBttomOut * radiusTopOut + pow(radiusTopOut, 2));
-    double innerVolume = (sheetHeight * M_PI) / 3 * ( pow(radiusBottomIn, 2)+ radiusBottomIn * radiusTopIn + pow(radiusTopIn, 2));
+    double outerVolume = (sheetHeight * M_PI) / 3 * ( pow(radiusBttomOut, 2) + radiusBttomOut * radiusTopOut + pow(radiusTopOut, 2)); //m³
+    double innerVolume = (sheetHeight * M_PI) / 3 * ( pow(radiusBottomIn, 2)+ radiusBottomIn * radiusTopIn + pow(radiusTopIn, 2)); //m³
     sheetWeight = (outerVolume - innerVolume) * steelWeigth;
 }
