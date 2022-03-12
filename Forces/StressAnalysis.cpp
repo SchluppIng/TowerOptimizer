@@ -1,22 +1,21 @@
 #include "StressAnalysis.h"
 #include <cmath>
 
-StressAnalysis::StressAnalysis(const double& _diameter, const double& _area, const double& _shellThickness, const double& _normalForce, const double& _shearForceX, 
-const double& _shearForceY, const double& _bendingMomentXX, const double& _bendingMomentYY, const double& _bendingMomentZZ, const double _resistanceMoment ) :
-diameter{_diameter},
-area{_area},
-sheetThickness{_shellThickness},
-normalForce{_normalForce},
-shearForceX{_shearForceX},
-shearForceY{_shearForceY},
-bendingMomentXX{_bendingMomentXX},
-bendingMomentYY{_bendingMomentYY},
-bendingMomentZZ{_bendingMomentZZ},
-resistanceMomment{_resistanceMoment}
+StressAnalysis::StressAnalysis(const std::string DLC, const double& Diameter, const double& Area, const double& SheetThickness, const double& ResistanceMoment, 
+const double& Fz, const double& Fres, const double& Mz, const double Mxy, const double& YieldStrength, const double& SafetyFactor) :
+loadCase{DLC},
+diameter{Diameter},
+area{Area},
+sheetThickness{SheetThickness},
+resistanceMomment{ResistanceMoment},
+normalForceZ{Fz},
+normalForceRes{Fres},
+bendingMomentZ{Mz},
+bendingMomentXY{Mxy},
+yieldStrength{YieldStrength},
+safetyFactor{SafetyFactor}
 {
     calcSheetArea();
-    calcShearForce();
-    calcMoment();
     calcSigmaZ();
     calcTau();
     calcSigmaV();
@@ -25,8 +24,8 @@ resistanceMomment{_resistanceMoment}
 }
 
 StressAnalysis::StressAnalysis(const StressAnalysis& stress) :
-StressAnalysis(stress.diameter, stress.area, stress.sheetThickness, stress.normalForce, stress.shearForceX, stress.shearForceY, stress.bendingMomentXX, 
-stress.bendingMomentYY, stress.bendingMomentZZ, stress.resistanceMomment)
+StressAnalysis(stress.loadCase ,stress.diameter, stress.area, stress.sheetThickness, stress.resistanceMomment, stress.normalForceZ,
+ stress.normalForceRes, stress.bendingMomentZ, stress.bendingMomentXY, stress.yieldStrength, stress.safetyFactor) 
 {}
 
 void StressAnalysis::calcSheetArea()
@@ -34,37 +33,27 @@ void StressAnalysis::calcSheetArea()
     sheetArea = pow((diameter - sheetThickness)/ 2, 2) * M_PI;
 }
 
-void StressAnalysis::calcShearForce()
-{
-    shearForce = sqrt(pow(shearForceX, 2) + pow(shearForceY, 2));
-}
-
-void StressAnalysis::calcMoment()
-{
-    bendingMoment = sqrt(pow(bendingMomentYY, 2) + pow(bendingMomentZZ, 2));
-}
-
 void StressAnalysis::calcSigmaZ()
 {
-    sigmaZ = abs(normalForce / area) + abs(bendingMoment / resistanceMomment);
+    sigmaZ = (abs(normalForceZ/ area) + abs(bendingMomentXY / resistanceMomment)); //N/mm²
 }
 
 void StressAnalysis::calcTau()
 {
-
-    tauShear = 2 * shearForce / area;
-    tauTorsion = abs(bendingMomentXX) / (2*sheetArea*sheetThickness);
-    tau = tauShear + tauTorsion;
+    tauShear = 2 * (normalForceRes) / area;
+    tauTorsion = abs(bendingMomentZ) / (2*sheetArea*sheetThickness);
+    tau = (tauShear + tauTorsion); //N/mm²
 }
 
 void StressAnalysis::calcSigmaV()
 {
-    sigmaV = sqrt(pow(sigmaZ, 2)) + 3 * sqrt(pow(tau, 2));
+    sigmaV = sqrt(pow(sigmaZ, 2)) + 3 * sqrt(pow(tauTorsion, 2)); //N/mm²;
 }
 
 void StressAnalysis::calcUtilisation()
 {
-    utilisation = sigmaV / yieldStrength;
+    yieldStrengthSaftey = yieldStrength / safetyFactor;
+    utilisation = sigmaV / yieldStrengthSaftey;
 }
 
 void StressAnalysis::calcResidualSafety()

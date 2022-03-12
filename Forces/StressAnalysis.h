@@ -5,15 +5,14 @@
 class StressAnalysis
 {
 public:
-    StressAnalysis(const double& _diameter, const double& _area, const double& _shellThickness, const double& _normalForce, const double& _shearForceX, 
-    const double& _shearForceY, const double& _bendingMomentXX, const double& _bendingMomentYY, const double& _bendingMomentZZ, const double _resistanceMoment );
+    StressAnalysis(const std::string DLC, const double& Diameter, const double& Area, const double& SheetThickness, const double& ResistanceMoment, const double& Fz, const double& Fres, 
+    const double& Mz, const double Mxy, const double& YieldStrength, const double& SafetyFactor);
     StressAnalysis(const StressAnalysis& stress);
-    
+
     ~StressAnalysis(){}
 
     void calcSheetArea();
     void calcShearForce();
-    void calcMoment();
     void calcSigmaZ();
     void calcSigmaV();
     void calcTau();
@@ -25,14 +24,10 @@ private:
     double area;                //m²
     double sheetArea;           //m²
     double sheetThickness;      //m
-    double normalForce;         //MN
-    double shearForceX;         //MN
-    double shearForceY;         //MN
-    double shearForce;          //MN
-    double bendingMomentYY;     //MNm
-    double bendingMomentXX;     //MNm
-    double bendingMomentZZ;     //MNm
-    double bendingMoment;       //MNm
+    double normalForceZ;        //MN
+    double normalForceRes;      //MN
+    double bendingMomentZ;      //MNm
+    double bendingMomentXY;     //MNm
     double resistanceMomment;   //m^4
     
 
@@ -46,6 +41,7 @@ private:
     double utilisation;
     double residualSafety;
     double yieldStrength;
+    double yieldStrengthSaftey;
 };
 
 #endif
