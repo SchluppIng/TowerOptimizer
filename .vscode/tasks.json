@@ -17,6 +17,7 @@
                 "${fileDirname}/Tower/TowerSheet.cpp",
                 "${fileDirname}/Tower/TowerSection.cpp",
                 "${fileDirname}/Tower/Tower.cpp",
+                "${fileDirname}/Forces/StressAnalysis.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
