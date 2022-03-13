@@ -103,4 +103,8 @@ int main()
     time1 += clock() - start;
     time1 = time1/CLOCKS_PER_SEC;
     cout << "Laufzeit des Programms: " << time1 << " sec.\n";
+
+    //Test Results
+    
+    cout << "End of this f*cking Program\n";
 }
