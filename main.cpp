@@ -7,12 +7,17 @@
 #include "Tower/TowerSheet.h"
 #include "Tower/TowerSection.h"
 #include "Tower/Tower.h"
-#include "Forces/StressAnalysis.h"
+#include "Analysis/StressAnalysis.h"
+#include "Analysis/Results.h"
+
+#include <time.h>
 
 using namespace std;
 
 int main()
 {
+    double time1{0.0}, start;
+    start = clock();
     //Test data for geometry
     double maxDia {6.0}; //m
     double minDia {3.0}; //m
@@ -77,5 +82,25 @@ int main()
     //Test Stess Analysis
     StressAnalysis stress("LoadCase", ts1.getDiameterBottomOut(), ts1.getBottomArea(), ts1.getSheetThickness(), ts1.getWyBottom(), 
     -5.3280, 1.2330, -2.0660, 127.2680, ts1.getYieldStrength(), ipCalcFacotrs.getSafeTyTowerWallULS() );
-    cout << "End of this f*cking Program\n";
+    
+    Results rs;
+    //Test Results
+    for(TowerSheet& sheet : vecTs)
+    {
+        rs.setVecStressAnalysis(stress);
+    }
+
+    int i = 1;
+
+    for(TowerSection& sec : tower.getTowerSections())
+    {
+        for(TowerSheet sheet : sec.getTowerSheets())
+        {
+            cout << i++ << " " << sheet.getBottomArea() << endl;
+        }
+    }
+
+    time1 += clock() - start;
+    time1 = time1/CLOCKS_PER_SEC;
+    cout << "Laufzeit des Programms: " << time1 << " sec.\n";
 }

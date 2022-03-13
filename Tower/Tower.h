@@ -2,7 +2,7 @@
 #define TOWER_H
 
 #include "TowerSection.h"
-
+#include "TowerSheet.h"
 class Tower
 {
 public:
@@ -18,6 +18,7 @@ public:
     double getTowerTopDiameter() const { return topDiameter; }
     int getNumberOfSections() const { return numberOfSections; }
     double getTowerWeight() const { return towerWeight; }
+    std::vector<TowerSection> getTowerSections() { return vecTowerSection; }
 
 private:
 

@@ -18,6 +18,7 @@ public:
     double getTopDiameter()const {return topDiameterSection;}
     double getSectionWeight()const {return sectionWeight;}
     double getSectionLength() const {return sectionLength;}
+    std::vector<TowerSheet> getTowerSheets() { return sectionSheets; }
 
 private:
     void calcSectionLength();
