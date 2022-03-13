@@ -19,6 +19,7 @@
                 "${fileDirname}/Tower/Tower.cpp",
                 "${fileDirname}/Analysis/StressAnalysis.cpp",
                 "${fileDirname}/Analysis/Results.cpp",
+                "${fileDirname}/Calculation_Modul/OptimizeTower.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
