@@ -9,7 +9,7 @@
 #include "Tower/Tower.h"
 #include "Analysis/StressAnalysis.h"
 #include "Analysis/Results.h"
-#include "OptimizeTower.h"
+#include "CalculationModul/TowerOptimizer.h"
 
 #include <time.h>
 
@@ -101,8 +101,7 @@ int main()
         }
     }
 
-    //Tower optimizer
-    OptimizeTower towerOpt;
+    TowerOptimizer towerOpt(ipData, tower);
     
     time1 += clock() - start;
     time1 = time1/CLOCKS_PER_SEC;

@@ -1,11 +1,8 @@
 #include "TowerOptimizer.h"
 
-TowerOptimizer::TowerOptimizer()
-{
-
-}
-
-TowerOptimizer::~TowerOptimizer()
+TowerOptimizer::TowerOptimizer(const InputData& inputData, const Tower& towerData) :
+input{inputData},
+tower{towerData}
 {
 
 }

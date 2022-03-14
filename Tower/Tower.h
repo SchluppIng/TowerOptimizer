@@ -6,6 +6,7 @@
 class Tower
 {
 public:
+    Tower();
     Tower(const std::vector<TowerSection>& vecTowerSections, const double& headMass);
     Tower(const Tower& tower);
 

@@ -4,15 +4,17 @@
 #include "../Tower/Tower.h"
 #include "../InputData/Input.h"
 #include "../PhysicalValues/PhysicalValues.h"
+#include "TowerOptiShellStressULS.h"
 
 class TowerOptimizer
 {
 public:
-    OptimizeTower();
-    ~OptimizeTower();
+    TowerOptimizer(const InputData& inputData, const Tower& towerData);
+    ~TowerOptimizer(){}
 
 private:
-
+   InputData input;
+   Tower tower;
 };
 
 #endif
